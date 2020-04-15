@@ -3,9 +3,9 @@
 Changes in reverse chronological order by release.
 
 
-## 2020-04-15
+## 0.1.0 - 2020-04-15
 
-Initial commit.
+Initial beta release.
 
 ### Added
 
