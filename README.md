@@ -50,11 +50,11 @@ return [
             'path' => '/home/kitchen',
             'middleware' => [Home::class, 'bedroom'],
         ],
-        'home/bedroom' => [
-            'path' => '/home/kitchen',
+        'home/living-room' => [
+            'path' => '/home/living-room',
             'middleware' => [
                 BeforeControllerMiddleware::class,
-                [Home::class, 'bedroom'],
+                [Home::class, 'livingRoom'],
                 AfterControllerMiddleware::class,
             ],
         ],
