@@ -41,10 +41,6 @@ matrix:
 
     - php: 7.4
       env:
-        - DEPS=lowest
-
-    - php: 7.4
-      env:
         - DEPS=latest
         - PHPCS=true
 
