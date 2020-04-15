@@ -1,6 +1,8 @@
 # p3-mezzio-controller
 
-A middleware wrapper for controller-like classes for mezzio/mezzio
+[![Build Status](https://travis-ci.org/pine3ree/p3-mezzio-controller.svg?branch=master)](https://travis-ci.org/pine3ree/p3-mezzio-controller)
+
+*A middleware wrapper for controller-like classes for mezzio/mezzio*
 
 ####STATUS:
 WIP!
