@@ -4,7 +4,7 @@
 
 *A middleware wrapper for controller-like classes for mezzio/mezzio*
 
-####STATUS:
+#### STATUS
 WIP!
 
 ## Installation
