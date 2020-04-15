@@ -1,0 +1,65 @@
+{
+    "name": "pine3ree/p3-mezzio-controller",
+    "description": "A middleware wrapper for controller-like classes for mezzio/mezzio",
+    "type": "library",
+    "keywords": [
+        "controller",
+        "routing",
+        "middleware",
+        "mezzio",
+        "pine3ree",
+        "p3",
+        "psr-15"
+    ],
+    "homepage": "https://github.com/pine3ree/p3-mezzio-controller",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "pine3ree",
+            "email": "pine3ree@gmail.com"
+        }
+    ],
+    "support": {
+        "docs": "https://github.com/pine3ree/p3-mezzio-controller/blob/master/README.md",
+        "issues": "https://github.com/pine3ree/p3-mezzio-controller/issues",
+        "source": "https://github.com/pine3ree/p3-mezzio-controller"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "php": "^7.1",
+        "mezzio/mezzio": "^3.0",
+        "psr/container": "^1.0",
+        "psr/http-message": "^1.0",
+        "psr/http-server-middleware": "^1.0"
+    },
+    "require-dev": {
+        "laminas/laminas-config-aggregator": "^1.2",
+        "laminas/laminas-diactoros": "^2.2",
+        "laminas/laminas-pimple-config": "^1.1",
+        "malukenho/docheader": "^0.1",
+        "mezzio/mezzio-fastroute": "^3.0",
+        "phpspec/prophecy": "^1.10",
+        "phpstan/phpstan": "^0.9",
+        "phpstan/phpstan-strict-rules": "^0.9",
+        "phpunit/phpunit": "^7.5",
+        "squizlabs/php_codesniffer": "^3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "P3\\Mezzio\\Controller\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "P3Test\\Mezzio\\Controller\\": "test/"
+        }
+    },
+    "scripts": {
+        "check-cs": "phpcs",
+        "fix-cs": "phpcbf",
+        "test": "phpunit --colors=always",
+        "check-license": "docheader check src/ test/"
+    }
+}
