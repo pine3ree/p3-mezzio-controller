@@ -2,6 +2,7 @@
 
 A middleware wrapper for controller-like classes for mezzio/mezzio
 
+####STATUS:
 WIP!
 
 ## Installation
@@ -28,10 +29,44 @@ use App\Controller\Home;
 $app->get('/home/bedroom', [Home::class, 'bedroom'], 'home/bedroom');
 ```
 
-These definition works only on the condition that if the controller class exists
+Define routes using a configuration file:
+
+```php
+// config/autoload/routes.global.php
+
+use App\Controller\Home;
+use App\Middleware\BeforeControllerMiddleware;
+use App\Middleware\BeforeControllerMiddleware;
+
+return [
+    'routes' => [
+        'home/kitchen' => [
+            'path' => '/home/kitchen',
+            'middleware' => 'App\Controller\Home::kitchen',
+        ],
+        'home/bedroom' => [
+            'path' => '/home/kitchen',
+            'middleware' => [Home::class, 'bedroom'],
+        ],
+        'home/bedroom' => [
+            'path' => '/home/kitchen',
+            'middleware' => [
+                BeforeControllerMiddleware::class,
+                [Home::class, 'bedroom'],
+                AfterControllerMiddleware::class,
+            ],
+        ],
+    ],
+];
+
+```
+
+
+
+These definitions works only on the condition that if the controller class exists
 and the target method is public.
 
-The target method signature can be one of the following:
+As of now the target controller-method signature may be one of the following:
 
 ```php
 use Psr\Http\Message\ServerRequestInterface;
@@ -54,3 +89,10 @@ class Home
 The controller class may be a simple contructor-less class. In most of cases it
 will have dependencies so it muste me defined in the container configuration along
 with its factory.
+
+####TODO:
+
+- Add strategy to pass request attributes as arguments into the target controller-method
+- Add strategy to allow null, string, array return values from the controller-methods
+  and build appropriate response based on  the return type
+
