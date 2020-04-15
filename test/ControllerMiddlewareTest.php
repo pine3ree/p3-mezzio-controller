@@ -36,7 +36,7 @@ class ControllerMiddlewareTest extends TestCase
     /** @var ResponseInterface */
     private $response;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->container = $this->prophesize(ContainerInterface::class);
         $this->request   = $this->prophesize(ServerRequestInterface::class);
