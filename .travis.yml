@@ -19,7 +19,7 @@ matrix:
     - php: 7.1
       env:
         - DEPS=latest
-        - CS_CHECK=true
+        - PHPCS=true
 
     - php: 7.2
       env:
@@ -28,7 +28,7 @@ matrix:
     - php: 7.2
       env:
         - DEPS=latest
-        - CS_CHECK=true
+        - PHPCS=true
 
     - php: 7.3
       env:
@@ -37,16 +37,16 @@ matrix:
     - php: 7.3
       env:
         - DEPS=latest
-        - CS_CHECK=true
+        - PHPCS=true
 
     - php: 7.4
       env:
         - DEPS=lowest
-        
+
     - php: 7.4
       env:
         - DEPS=latest
-        - CS_CHECK=true
+        - PHPCS=true
 
 before_install:
   - if [[ $TEST_COVERAGE != 'true' ]]; then phpenv config-rm xdebug.ini || return 0 ; fi
@@ -60,7 +60,7 @@ install:
 
 script:
   - if [[ $TEST_COVERAGE == 'true' ]]; then composer test-coverage ; else composer test ; fi
-  - if [[ $CS_CHECK == 'true' ]]; then composer cs-check ; fi
+  - if [[ $PHPCS == 'true' ]]; then composer check-cs ; fi
   - if [[ $PHPSTAN_CHECK == 'true' ]]; then composer phpstan ; fi
 
 after_script:
