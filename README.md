@@ -92,9 +92,9 @@ The controller class may be a simple contructor-less class. In most of cases it
 will have dependencies so it muste me defined in the container configuration along
 with its factory.
 
-####TODO:
+#### TODO:
 
 - Add strategy to pass request attributes as arguments into the target controller-method
-- Add strategy to allow null, string, array return values from the controller-methods
-  and build appropriate response based on  the return type
+- Add strategy to allow null, string, array, xml, etc... return values from the
+  controller-methods and build appropriate response based on  the return type.
 
