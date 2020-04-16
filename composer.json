@@ -35,11 +35,8 @@
         "psr/http-server-middleware": "^1.0"
     },
     "require-dev": {
-        "laminas/laminas-config-aggregator": "^1.2",
         "laminas/laminas-diactoros": "^2.2",
-        "laminas/laminas-pimple-config": "^1.1",
         "malukenho/docheader": "^0.1",
-        "mezzio/mezzio-fastroute": "^3.0",
         "phpspec/prophecy": "^1.10",
         "phpstan/phpstan": "^0.9",
         "phpstan/phpstan-strict-rules": "^0.9",

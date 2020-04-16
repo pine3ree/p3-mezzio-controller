@@ -3,6 +3,29 @@
 Changes in reverse chronological order by release.
 
 
+## 0.1.2 - 2020-04-16
+
+DEV-DEPENDENCIES UPDATES
+
+### Added
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Removed unused dev-dependencies (laminas-config-aggregator, laminas-pimple-config, mezzio-fastroute)
+
+### Fixed
+
+- README route example.
+
+
+
+
 ## 0.1.1 - 2020-04-16
 
 README UPDATES.
