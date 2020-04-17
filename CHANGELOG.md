@@ -5,11 +5,11 @@ Changes in reverse chronological order by release.
 
 ## 0.2.0 - TBD
 
-- Nothing.
-
 ### Added
 
-- Nothing.
+- Added custom exception Exception/InvalidController/exception
+- Added static analysis test and updated the php-doc type hinting
+- Replaced PSR12 control structure CS rule with PSR2
 
 ### Deprecated
 
