@@ -20,7 +20,6 @@ namespace P3\Mezzio\Controller;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Mezzio\Exception\InvalidMiddlewareException;
 use Mezzio\MiddlewareFactory as MezzioMiddlewareFactory;
 use Mezzio\MiddlewareContainer;
 use P3\Mezzio\Controller\ControllerMiddleware;
@@ -69,6 +68,7 @@ class MiddlewareFactory extends MezzioMiddlewareFactory
     public function prepare($middleware): MiddlewareInterface
     {
         if ($this->isController($middleware)) {
+            /** @var string|array $middleware */
             return $this->controller($middleware);
         }
 
