@@ -20,6 +20,7 @@ matrix:
       env:
         - DEPS=latest
         - PHPCS=true
+        - PHPSTAN=true
 
     - php: 7.2
       env:
@@ -29,6 +30,7 @@ matrix:
       env:
         - DEPS=latest
         - PHPCS=true
+        - PHPSTAN=true
 
     - php: 7.3
       env:
@@ -38,11 +40,13 @@ matrix:
       env:
         - DEPS=latest
         - PHPCS=true
+        - PHPSTAN=true
 
     - php: 7.4
       env:
         - DEPS=latest
         - PHPCS=true
+        - PHPSTAN=true
 
 before_install:
   - if [[ $TEST_COVERAGE != 'true' ]]; then phpenv config-rm xdebug.ini || return 0 ; fi
@@ -55,9 +59,8 @@ install:
   - cat phpunit.xml.dist
 
 script:
-  - if [[ $TEST_COVERAGE == 'true' ]]; then composer test-coverage ; else composer test ; fi
   - if [[ $PHPCS == 'true' ]]; then composer check-cs ; fi
-  - if [[ $PHPSTAN_CHECK == 'true' ]]; then composer phpstan ; fi
+  - if [[ $PHPSTAN == 'true' ]]; then composer phpstan ; fi
 
 after_script:
 

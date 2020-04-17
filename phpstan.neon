@@ -4,4 +4,7 @@ parameters:
     fileExtensions:
         - php
     reportUnmatchedIgnoredErrors: true
+    checkMissingIterableValueType: false
     ignoreErrors:
+        - '#Variable method call on#'
+        - '#Parameter \#1 \$controller of method P3\\Mezzio\\Controller\\MiddlewareFactory::controller() expects array|string#'
