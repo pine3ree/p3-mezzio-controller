@@ -76,7 +76,7 @@ class ControllerMiddleware implements MiddlewareInterface
 
         if (!is_array($middleware) || !is_callable($middleware)) {
             throw new InvalidMiddlewareException(
-                "A controller-middleware must defined as a callable array "
+                "A controller-middleware must be defined as a callable array "
                 . "form [FQCN::class, 'method'] or a callable string form "
                 . "'My\Fully\Qualified\ClassName::method'!"
             );
