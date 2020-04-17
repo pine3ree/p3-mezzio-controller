@@ -3,7 +3,7 @@
 Changes in reverse chronological order by release.
 
 
-## 0.2.0 - TBD
+## 0.2.0 - 2020-04-17
 
 ### Added
 
