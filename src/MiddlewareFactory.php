@@ -77,14 +77,16 @@ class MiddlewareFactory extends MezzioMiddlewareFactory
 
     /**
      * Create a controller middleware based on a string/array callable middleware definition
+     *
+     * @param array|string $controller
      */
-    public function controller($middleware): ControllerMiddleware
+    public function controller($controller): ControllerMiddleware
     {
-        return new ControllerMiddleware($this->rootContainer, $middleware);
+        return new ControllerMiddleware($this->rootContainer, $controller);
     }
 
     /**
-     * Check if the callable middleware represents a class/object + method pair
+     * Check if the callable middleware represents a class/object-method callable combination
      *
      * @param mixed $middleware
      */
@@ -94,11 +96,13 @@ class MiddlewareFactory extends MezzioMiddlewareFactory
             return false;
         }
 
+        // [F\Q\Class\Name::class, "method"]
         if (is_array($middleware)) {
             return true;
         }
 
-        if (is_string($middleware) && strpos($middleware, '::')) {
+        // "F\Q\Class\Name::method"
+        if (is_string($middleware) && 0 < strpos($middleware, '::')) {
             return true;
         }
 

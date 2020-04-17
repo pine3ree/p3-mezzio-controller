@@ -16,8 +16,9 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Mezzio\Exception\InvalidMiddlewareException;
+use P3\Mezzio\Controller\Exception\InvalidControllerException;
 
+use function count;
 use function is_array;
 use function is_string;
 use function explode;
@@ -31,7 +32,7 @@ class ControllerMiddleware implements MiddlewareInterface
     private $container;
 
     /**
-     * @var string|object The controller FQCN or the controller instance
+     * @var callable The controller FQCN or the controller instance
      */
     private $controller;
 
@@ -40,12 +41,15 @@ class ControllerMiddleware implements MiddlewareInterface
      */
     private $method;
 
+    /**
+     * @param array|string $controller A class/object-method string/array expression
+     */
     public function __construct(
         ContainerInterface $container,
-        $middleware
+        $controller
     ) {
         $this->container = $container;
-        $this->resolve($middleware);
+        $this->resolve($controller);
     }
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
@@ -63,26 +67,29 @@ class ControllerMiddleware implements MiddlewareInterface
     }
 
     /**
-     * Resolve the middleware definition into class/object and method
+     * Resolve the middleware definition into class/object and method array
      *
-     * @return void
-     * @throws InvalidMiddlewareException for invalid controller/method pair
+     * @param array|string $controller
+     * @throws InvalidControllerException for invalid controller/method combination
      */
-    private function resolve($middleware)
+    private function resolve($controller): void
     {
-        if (is_string($middleware) && strpos($middleware, '::')) {
-            $middleware = explode('::', $middleware);
+        if (is_string($controller) && 0 < strpos($controller, '::')) {
+            $controller = explode('::', $controller);
         }
 
-        if (!is_array($middleware) || !is_callable($middleware)) {
-            throw new InvalidMiddlewareException(
-                "A controller-middleware must be defined as a callable array "
-                . "form [FQCN::class, 'method'] or a callable string form "
-                . "'My\Fully\Qualified\ClassName::method'!"
+        if (!is_array($controller)
+            || count($controller) !== 2
+            || !is_callable($controller)
+        ) {
+            throw new InvalidControllerException(
+                "A controller must be defined as a callable array form"
+                . " [FQCN::class, 'method'] or a callable string form"
+                . " 'My\Fully\Qualified\ClassName::method'!"
             );
         }
 
-        $this->controller = $middleware[0];
-        $this->method     = $middleware[1];
+        $this->controller = $controller[0];
+        $this->method     = $controller[1];
     }
 }

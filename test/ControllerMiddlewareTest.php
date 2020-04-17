@@ -17,9 +17,9 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Prophecy\ObjectProphecy;
-use Mezzio\Exception\InvalidMiddlewareException;
 use Mezzio\MiddlewareContainer;
 use P3\Mezzio\Controller\ControllerMiddleware;
+use P3\Mezzio\Controller\Exception\InvalidControllerException;
 use P3Test\Mezzio\Controller\TestAsset\Foo;
 
 class ControllerMiddlewareTest extends TestCase
@@ -135,21 +135,21 @@ class ControllerMiddlewareTest extends TestCase
         );
     }
 
-    public function testThrowsInvalidMiddlewareExceptionForUnsupportedParameterType()
+    public function testThrowsInvalidControllerExceptionForUnsupportedParameterType()
     {
-        $this->expectException(InvalidMiddlewareException::class);
+        $this->expectException(InvalidControllerException::class);
         $controllerMiddleware = $this->buildControllerMiddleware(123);
     }
 
-    public function testThrowsInvalidMiddlewareExceptionsForUnsupportedCallableString()
+    public function testThrowsInvalidControllerExceptionForUnsupportedCallableString()
     {
-        $this->expectException(InvalidMiddlewareException::class);
+        $this->expectException(InvalidControllerException::class);
         $controllerMiddleware = $this->buildControllerMiddleware('strlen');
     }
 
-    public function testThrowsInvalidMiddlewareExceptionsForNonCallableArray()
+    public function testThrowsInvalidControllerExceptionForNonCallableArray()
     {
-        $this->expectException(InvalidMiddlewareException::class);
+        $this->expectException(InvalidControllerException::class);
         $controllerMiddleware = $this->buildControllerMiddleware(['A', 2]);
     }
 }
