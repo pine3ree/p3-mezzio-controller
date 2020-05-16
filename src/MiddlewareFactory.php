@@ -45,11 +45,6 @@ use function is_string;
 class MiddlewareFactory extends MezzioMiddlewareFactory
 {
     /**
-     * @var MiddlewareContainer
-     */
-    private $container;
-
-    /**
      * @var ContainerInterface
      */
     private $rootContainer;
