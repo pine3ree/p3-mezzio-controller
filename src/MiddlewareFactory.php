@@ -19,7 +19,6 @@ namespace P3\Mezzio\Controller;
 // Order imports by namespace specificity and inside namespace alphabetically
 use Psr\Container\ContainerInterface;
 use Psr\Http\Server\MiddlewareInterface;
-use Psr\Http\Server\RequestHandlerInterface;
 use Mezzio\MiddlewareFactory as MezzioMiddlewareFactory;
 use Mezzio\MiddlewareContainer;
 use P3\Mezzio\Controller\ControllerMiddleware;
