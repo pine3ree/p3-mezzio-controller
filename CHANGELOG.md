@@ -3,6 +3,44 @@
 Changes in reverse chronological order by release.
 
 
+## 0.2.4 - 2020-05-16
+
+### Added
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- fixed Readme installation instructions.
+
+
+## 0.2.3 - 2020-05-16
+
+### Added
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Removed extraneous class.
+
+### Fixed
+
+- Nothing.
+
+
 ## 0.2.2 - 2020-05-16
 
 ### Added
