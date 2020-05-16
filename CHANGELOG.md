@@ -3,6 +3,25 @@
 Changes in reverse chronological order by release.
 
 
+## 0.2.5 - 2020-05-16
+
+### Added
+
+- Improved commentary.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Removed unused interface and middleware-$container property.
+
+### Fixed
+
+- Nothing.
+
+
 ## 0.2.4 - 2020-05-16
 
 ### Added
