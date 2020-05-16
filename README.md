@@ -37,8 +37,8 @@ Define routes using a configuration file:
 // config/autoload/routes.global.php
 
 use App\Controller\Home;
-use App\Middleware\BeforeControllerMiddleware;
-use App\Middleware\BeforeControllerMiddleware;
+use App\Middleware\BeforeHomeControllerMiddleware;
+use App\Middleware\AfterHomeControllerMiddleware;
 
 return [
     'routes' => [
@@ -53,9 +53,9 @@ return [
         'home/living-room' => [
             'path' => '/home/living-room',
             'middleware' => [
-                BeforeControllerMiddleware::class,
+                BeforeHomeControllerMiddleware::class,
                 [Home::class, 'livingRoom'],
-                AfterControllerMiddleware::class,
+                AfterHomeControllerMiddleware::class,
             ],
         ],
     ],
