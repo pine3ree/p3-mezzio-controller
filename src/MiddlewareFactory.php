@@ -95,12 +95,12 @@ class MiddlewareFactory extends MezzioMiddlewareFactory
             return false;
         }
 
-        // [F\Q\Class\Name::class, "method"]
+        // [Fully\Qualified\Class\Name::class, "method"]
         if (is_array($middleware)) {
             return true;
         }
 
-        // "F\Q\Class\Name::method"
+        // "Fully\Qualified\Class\Name::method"
         if (is_string($middleware) && 0 < strpos($middleware, '::')) {
             return true;
         }
