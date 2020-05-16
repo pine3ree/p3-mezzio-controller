@@ -3,6 +3,25 @@
 Changes in reverse chronological order by release.
 
 
+## 0.2.2 - 2020-05-16
+
+### Added
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- fixed Readme file example code.
+
+
 ## 0.2.1 - 2020-04-17
 
 - Improved phpstan using inline type php-doc declaration
