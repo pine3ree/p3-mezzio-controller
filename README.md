@@ -12,7 +12,7 @@ WIP!
 You can install this library using Composer (with "minimum-stability": "dev"):
 
 ```bash
-$ composer require pine3ree/p3-pdo
+$ composer require pine3ree/p3-mezzio-controller
 ```
 
 ## Documentation
